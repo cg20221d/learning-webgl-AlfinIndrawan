@@ -29,6 +29,13 @@ function main() {
     0.4, -0.4,
     0.17, 0,
     0.33, 0,
+    // "N"
+    0.5, -0.4,
+    0.5, 0.4,
+    0.5, 0.4,
+    0.9, -0.4,
+    0.9, -0.4,
+    0.9, 0.4,
   ];
   var vertices_buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, vertices_buffer);
@@ -81,4 +88,5 @@ function main() {
   gl.drawArrays(gl.LINES, 16, 4);
   gl.drawArrays(gl.LINES, 20, 2);
   // draw N
+  gl.drawArrays(gl.LINES, 22, 6);
 }
