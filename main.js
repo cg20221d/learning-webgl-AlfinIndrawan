@@ -4,22 +4,24 @@ function main() {
   var gl = kanvas.getContext("webgl");
   // create a vertices that make word A
   var vertices = [
-    -0.5, -0.5,
-    -0.25, -0.5,
-    -0.25, -0.5,
-    0, -0.5,
-    0, -0.5,
-    0, -0.25,
-    0, -0.25,
+    // 9
+    -0.5, 0,
+    - 0.9, 0,
+    -0.9, 0.4,
+    -0.5, 0.4,
+    -0.5, 0,
+    -0.5, -0.4,
+    -0.5, -0.4,
+    -0.9, -0.4,
+    // 9 again
     0, 0,
-    0.0, 0.0,
-    -0.5, 0,
-    -0.5, 0,
-    -0.5, 0.5,
-    0, 0.5,
-    - 0.5, 0.5,
-    0, 0.5,
-    0, 0
+    - 0.4, 0,
+    -0.4, 0.4,
+    0, 0.4,
+    0, 0,
+    0, -0.4,
+    0, -0.4,
+    -0.4, -0.4,
   ];
   var vertices_buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, vertices_buffer);
@@ -63,5 +65,8 @@ function main() {
   gl.clearColor(1.0, 0.5, 0.0, 1.0);
   gl.clear(gl.COLOR_BUFFER_BIT);
   // draw a  9
-  gl.drawArrays(gl.LINES, 0, 16);
+  gl.drawArrays(gl.LINE_LOOP, 0, 4);
+  gl.drawArrays(gl.LINES, 4, 4)
+  gl.drawArrays(gl.LINE_LOOP, 8, 4);
+  gl.drawArrays(gl.LINES, 12, 4)
 }
