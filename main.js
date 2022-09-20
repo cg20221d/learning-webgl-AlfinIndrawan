@@ -22,6 +22,13 @@ function main() {
     0, -0.4,
     0, -0.4,
     -0.4, -0.4,
+    // "A"
+    0.25, 0.4,
+    0.1, -0.4,
+    0.25, 0.4,
+    0.4, -0.4,
+    0.17, 0,
+    0.33, 0,
   ];
   var vertices_buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, vertices_buffer);
@@ -64,9 +71,14 @@ function main() {
   // oranye
   gl.clearColor(1.0, 0.5, 0.0, 1.0);
   gl.clear(gl.COLOR_BUFFER_BIT);
-  // draw a  9
+  // draw a 9
   gl.drawArrays(gl.LINE_LOOP, 0, 4);
   gl.drawArrays(gl.LINES, 4, 4)
+  // draw a 9 again
   gl.drawArrays(gl.LINE_LOOP, 8, 4);
   gl.drawArrays(gl.LINES, 12, 4)
+  // draw A
+  gl.drawArrays(gl.LINES, 16, 4);
+  gl.drawArrays(gl.LINES, 20, 2);
+  // draw N
 }
