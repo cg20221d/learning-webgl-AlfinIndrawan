@@ -124,7 +124,10 @@ function main() {
 
   // Variabel lokal
   var theta = 0.0;
-  var freeze = false;
+  var thetaX = 0.0;
+  var thetaY = 0.0;
+  var freezeA = false;
+  var freezeN = false;
   var frameWidth = 9;
   var horizontalSpeed = 0.0199; // NRP akhir 199
   var scaleSpeed = 0.0199;
@@ -221,14 +224,19 @@ function main() {
 
   const animateRotationA = () => {
     // Rotate the vertices 'A' object about the Y axis with -1 angular velocity
-    var model = mat4.create();
-    mat4.rotateY(model, model, theta);
-    theta += 0.01;
+    var modely = mat4.create();
+    mat4.rotateY(modely, modely, thetaY);
+    // using left and right arrow keys to reverse the direction of rotation
+    if (freezeA) {
+      thetaY += 0.05;
+    } else {
+      thetaY += 0.01;
+    }
 
     var uModel = gl.getUniformLocation(shaderProgram, "uModel");
     var uView = gl.getUniformLocation(shaderProgram, "uView");
     var uProjection = gl.getUniformLocation(shaderProgram, "uProjection");
-    gl.uniformMatrix4fv(uModel, false, model);
+    gl.uniformMatrix4fv(uModel, false, modely);
     gl.uniformMatrix4fv(uView, false, view);
     gl.uniformMatrix4fv(uProjection, false, perspective);
     drawing(objects[1].vertices, objects[1].indices, 0, objects[1].length, objects[1].type);
@@ -236,18 +244,38 @@ function main() {
 
   const animateRotationN = () => {
     // Rotate the vertices 'A' object about the X axis with -1 angular velocity
-    var model = mat4.create();
-    mat4.rotateX(model, model, theta);
-    theta += 0.01;
-
+    var modelx = mat4.create();
+    mat4.rotateX(modelx, modelx, thetaX);
+    // using up and down arrow keys to reverse the direction of rotation
+    if (freezeN) {
+      thetaX += 0.05;
+    } else {
+      thetaX += 0.01;
+    }
     var uModel = gl.getUniformLocation(shaderProgram, "uModel");
     var uView = gl.getUniformLocation(shaderProgram, "uView");
     var uProjection = gl.getUniformLocation(shaderProgram, "uProjection");
-    gl.uniformMatrix4fv(uModel, false, model);
+    gl.uniformMatrix4fv(uModel, false, modelx);
     gl.uniformMatrix4fv(uView, false, view);
     gl.uniformMatrix4fv(uProjection, false, perspective);
     drawing(objects[1].vertices, objects[1].indices, 0, objects[1].length, objects[1].type);
   }
+
+  function onKeyPress(event) {
+    if (event.keyCode == 37) { // left arrow key
+      freezeA = true;
+    } else if (event.keyCode == 39) { // right arrow
+      freezeA = false;
+    } else if (event.keyCode == 38) { // up
+      freezeN = true;
+    } else if (event.keyCode == 40) { // down
+      freezeN = false;
+    }
+  }
+
+  document.addEventListener("keydown", onKeyPress, false);
+
+
 
   var aPosition = gl.getAttribLocation(shaderProgram, "aPosition");
   gl.vertexAttribPointer(aPosition, 3, gl.FLOAT, false,
@@ -266,9 +294,7 @@ function main() {
     gl.clearColor(1.0, 0.5, 0.0, 1.0);
     //            Merah     Hijau   Biru    Transparansi
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    if (!freeze) {
-      theta += 0.005;
-    }
+
     horizontalDelta += horizontalSpeed;
     verticalDelta -= verticalSpeed;
     var model = mat4.create(); // Membuat matriks identitas
