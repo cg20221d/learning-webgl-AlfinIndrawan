@@ -33,11 +33,14 @@ function main() {
     -0.8, -0.15, 0.0, 0, 0, 0,    // Index:  0
     -0.7, -0.15, 0.0, 0, 0, 0,    // Index:  1
     -1.15, -0.8, 0.0, 0, 0, 0,    // Index:  2
-    -1.25, -0.8, 0.0, 0, 0, 0,    // Index:  
+    -1.25, -0.8, 0.0, 0, 0, 0,    // Index:  3
   ];
 
   var verticesA3 = [
-
+    -0.45, -0.5, 0.0, 0, 0, 0,    // Index:  0
+    -0.45, -0.6, 0.0, 0, 0, 0,    // Index:  1
+    -1.05, -0.6, 0.0, 0, 0, 0,    // Index:  2
+    -1.05, -0.5, 0.0, 0, 0, 0,    // Index:  3
   ];
 
   var indicesA1 = [
@@ -324,9 +327,9 @@ function main() {
     mat4.rotateX(modely, modely, thetaX);
     // using left and right arrow keys to reverse the direction of rotation
     if (freezeA) {
-      thetaX += 0.0;
+      thetaX += 0.06;
     } else {
-      thetaX += 0.0;
+      thetaX += 0.01;
     }
 
     var uModel = gl.getUniformLocation(shaderProgram, "uModel");
