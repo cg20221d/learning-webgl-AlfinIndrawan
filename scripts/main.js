@@ -2,58 +2,119 @@ function main() {
   var kanvas = document.getElementById("kanvas");
   var gl = kanvas.getContext("webgl");
 
-  var vertices9_1 = [
-    -0.35, 0.4, 0.1, 1, 1, 1,    // Index:  0
-    -0.7, 0.4, 0.1, 1, 1, 1,    // Index:  1
-    -0.8, 0.4, 0.1, 1, 1, 1,    // Index:  2
-    -0.8, 0.7, 0.1, 1, 1, 1,    // Index:  3
-    -0.7, 0.8, 0.1, 1, 1, 1,    // Index:  4
-    -0.35, 0.8, 0.1, 1, 1, 1,    // Index:  5
-    -0.25, 0.8, 0.1, 1, 1, 1,    // Index:  6
-    -0.25, 0.25, 0.1, 1, 1, 1,    // Index:  7
-    -0.35, 0.15, 0.1, 1, 1, 1,    // Index:  8
-    -0.7, 0.15, 0.1, 1, 1, 1,    // Index:  9
-    -0.8, 0.15, 0.1, 1, 1, 1,    // Index:  10
-    -0.8, 0.35, 0.1, 1, 1, 1,    // Index:  11
-    -0.7, 0.35, 0.1, 1, 1, 1,    // Index:  12
-    -0.7, 0.3, 0.1, 1, 1, 1,    // Index:  13
-    -0.65, 0.25, 0.1, 1, 1, 1,    // Index:  14
-    -0.4, 0.25, 0.1, 1, 1, 1,    // Index:  15
-    -0.35, 0.3, 0.1, 1, 1, 1,    // Index:  16
+  var vertices9 = [
+    -0.35, 0.4, 0.1, 0, 0, 0,    // Index:  0
+    -0.7, 0.4, 0.1, 0, 0, 0,    // Index:  1
+    -0.8, 0.4, 0.1, 0, 0, 0,    // Index:  2
+    -0.8, 0.7, 0.1, 0, 0, 0,    // Index:  3
+    -0.7, 0.8, 0.1, 0, 0, 0,    // Index:  4
+    -0.35, 0.8, 0.1, 0, 0, 0,    // Index:  5
+    -0.25, 0.8, 0.1, 0, 0, 0,    // Index:  6
+    -0.25, 0.25, 0.1, 0, 0, 0,    // Index:  7
+    -0.35, 0.15, 0.1, 0, 0, 0,    // Index:  8
+    -0.7, 0.15, 0.1, 0, 0, 0,    // Index:  9
+    -0.8, 0.15, 0.1, 0, 0, 0,    // Index:  10
+    -0.8, 0.35, 0.1, 0, 0, 0,    // Index:  11
+    -0.7, 0.35, 0.1, 0, 0, 0,    // Index:  12
+    -0.7, 0.3, 0.1, 0, 0, 0,    // Index:  13
+    -0.65, 0.25, 0.1, 0, 0, 0,    // Index:  14
+    -0.4, 0.25, 0.1, 0, 0, 0,    // Index:  15
+    -0.35, 0.3, 0.1, 0, 0, 0,    // Index:  16
   ];
 
-  var verticesA = [
-    // create 'A' shape with 3D effect 
-    -0.35, 0.4, 0.1, 1, 1, 1,    // Index:  0
-    -0.7, 0.4, 0.1, 1, 1, 1,    // Index:  1
-    -0.8, 0.4, 0.1, 1, 1, 1,    // Index:  2
-    -0.8, 0.7, 0.1, 1, 1, 1,    // Index:  3
-    -0.7, 0.8, 0.1, 1, 1, 1,    // Index:  4
-    -0.35, 0.8, 0.1, 1, 1, 1,    // Index:  5
-    -0.25, 0.8, 0.1, 1, 1, 1,    // Index:  6
-    -0.25, 0.25, 0.1, 1, 1, 1,    // Index:  7
-    -0.35, 0.15, 0.1, 1, 1, 1,    // Index:  8
-    -0.7, 0.15, 0.1, 1, 1, 1,    // Index:  9
-    -0.8, 0.15, 0.1, 1, 1, 1,    // Index:  10
-    -0.8, 0.35, 0.1, 1, 1, 1,    // Index:  11
-    -0.7, 0.35, 0.1, 1, 1, 1,    // Index:  12
-    -0.7, 0.3, 0.1, 1, 1, 1,    // Index:  13
-    -0.65, 0.25, 0.1, 1, 1, 1,    // Index:  14
-    -0.4, 0.25, 0.1, 1, 1, 1,    // Index:  15
-    -0.35, 0.3, 0.1, 1, 1, 1,    // Index:  16
+  var verticesA1 = [
+    -0.8, -0.15, 0.0, 0, 0, 0,    // Index:  0
+    -0.7, -0.15, 0.0, 0, 0, 0,    // Index:  1
+    -0.25, -0.8, 0.0, 0, 0, 0,    // Index:  2
+    -0.35, -0.8, 0.0, 0, 0, 0,    // Index:  3
   ];
 
+  var verticesA2 = [
+    -0.8, -0.15, 0.0, 0, 0, 0,    // Index:  0
+    -0.7, -0.15, 0.0, 0, 0, 0,    // Index:  1
+    -1.15, -0.8, 0.0, 0, 0, 0,    // Index:  2
+    -1.25, -0.8, 0.0, 0, 0, 0,    // Index:  
+  ];
 
+  var verticesA3 = [
+
+  ];
+
+  var indicesA1 = [
+    0, 1, 2, 0, 2, 3,
+    4, 5, 6, 4, 6, 7,
+    8, 9, 10, 8, 10,
+  ];
+
+  var indicesA2 = [
+    0, 1, 2, 0, 2, 3,
+    4, 5, 6, 4, 6, 7,
+    8, 9, 10, 8, 10,
+  ];
+
+  var indicesA3 = [
+    0, 1, 2, 0, 2, 3,
+    4, 5, 6, 4, 6, 7,
+    8, 9, 10, 8, 10,
+  ];
+  var verticesN1 = [
+    // Char N Outer Front    // Black
+    -0.8, -0.8, 0.0, 0, 0, 0,    // Index:  0
+    -0.7, -0.8, 0.0, 0, 0, 0,    // Index:  1
+    -0.7, -0.15, 0.0, 0, 0, 0,    // Index:  2
+    -0.8, -0.15, 0.0, 0, 0, 0,    // Index:  3
+  ];
+
+  var indicesN1 = [
+    0, 1, 2, 0, 2, 3,
+    4, 5, 6, 4, 6, 7,
+    8, 9, 10, 8, 10,
+  ];
+
+  var verticesN2 = [
+    // Char N Outer Front    // Black
+    -0.35, -0.8, 0.0, 0, 0, 0,    // Index:  0
+    -0.25, -0.8, 0.0, 0, 0, 0,    // Index:  1
+    -0.25, -0.15, 0.0, 0, 0, 0,    // Index:  2
+    -0.35, -0.15, 0.0, 0, 0, 0,    // Index:  3
+  ];
+
+  var indicesN2 = [
+    0, 1, 2, 0, 2, 3,
+    4, 5, 6, 4, 6, 7,
+    8, 9, 10, 8, 10,
+  ];
+
+  var verticesN3 = [
+    // Char N Outer Front    // Black
+    -0.8, -0.15, 0.0, 0, 0, 0,    // Index:  0
+    -0.7, -0.15, 0.0, 0, 0, 0,    // Index:  1
+    -0.25, -0.8, 0.0, 0, 0, 0,    // Index:  2
+    -0.35, -0.8, 0.0, 0, 0, 0,    // Index:  3
+  ];
+
+  var indicesN3 = [
+    0, 1, 2, 0, 2, 3,
+    4, 5, 6, 4, 6, 7,
+    8, 9, 10, 8, 10,
+  ];
+  //     // "A"
+  // 0.25, 0.4,
+  //   0.1, -0.4,
+  //   0.25, 0.4,
+  //   0.4, -0.4,
+  //   0.17, 0,
+  //   0.33, 0,
   //   // "N"
   //   0.5, -0.4,
   //   0.5, 0.4,
   //   0.5, 0.4,
   //   0.9, -0.4,
   //   0.9, -0.4,
+  //   0.9, 0.4,
 
 
-
-  var indices9_1 = [
+  var indices9 = [
     0, 1, 2, 0, 2, 3,
     4, 5, 6, 4, 6, 7,
     8, 9, 10, 8, 10, 11,
@@ -62,30 +123,65 @@ function main() {
     20, 21, 22, 20, 22, 23,
   ];
 
-  var indicesA = [
-    0, 1, 2, 0, 2, 3,
-    4, 5, 6, 4, 6, 7,
-    8, 9, 10, 8, 10, 11,
-    12, 13, 14, 12, 14, 15,
-    16, 17, 18, 16, 18, 19,
-    20, 21, 22, 20, 22, 23,
-  ];
+
+
+  // var indicesA1 = [
+  //   0, 1, 2, 0, 1, 3,
+  //   4, 5, 6, 4, 5, 6,
+  //   7, 9, 12, 21, 11, 9,
+  // ];
 
   var objects = [
     {
       name: '9',
-      vertices: vertices9_1,
-      indices: indices9_1,
+      vertices: vertices9,
+      indices: indices9,
       length: 16,
       type: gl.LINE_LOOP,
     },
     {
-      name: 'A',
-      vertices: verticesA,
-      indices: indicesA,
-      length: 16,
-      type: gl.LINE_LOOP,
-    }
+      name: 'A1',
+      vertices: verticesA1,
+      indices: indicesA1,
+      length: 10,
+      type: gl.TRIANGLE_FAN,
+    },
+    {
+      name: 'A2',
+      vertices: verticesA2,
+      indices: indicesA2,
+      length: 10,
+      type: gl.TRIANGLE_FAN,
+    },
+    {
+      name: 'A3',
+      vertices: verticesA3,
+      indices: indicesA3,
+      length: 10,
+      type: gl.TRIANGLE_FAN,
+    },
+    {
+      name: 'N1',
+      vertices: verticesN1,
+      indices: indicesN1,
+      length: 10,
+      type: gl.TRIANGLE_FAN,
+    },
+    {
+      name: 'N2',
+      vertices: verticesN2,
+      indices: indicesN2,
+      length: 10,
+      type: gl.TRIANGLE_FAN,
+
+    },
+    {
+      name: 'N3',
+      vertices: verticesN3,
+      indices: indicesN3,
+      length: 10,
+      type: gl.TRIANGLE_FAN,
+    },
   ]
 
   var vertexShaderCode = `
@@ -225,12 +321,12 @@ function main() {
   const animateRotationA = () => {
     // Rotate the vertices 'A' object about the Y axis with -1 angular velocity
     var modely = mat4.create();
-    mat4.rotateY(modely, modely, thetaY);
+    mat4.rotateX(modely, modely, thetaX);
     // using left and right arrow keys to reverse the direction of rotation
     if (freezeA) {
-      thetaY += 0.05;
+      thetaX += 0.0;
     } else {
-      thetaY += 0.01;
+      thetaX += 0.0;
     }
 
     var uModel = gl.getUniformLocation(shaderProgram, "uModel");
@@ -240,17 +336,19 @@ function main() {
     gl.uniformMatrix4fv(uView, false, view);
     gl.uniformMatrix4fv(uProjection, false, perspective);
     drawing(objects[1].vertices, objects[1].indices, 0, objects[1].length, objects[1].type);
+    drawing(objects[2].vertices, objects[2].indices, 0, objects[2].length, objects[2].type);
+    drawing(objects[3].vertices, objects[3].indices, 0, objects[3].length, objects[3].type);
   }
 
   const animateRotationN = () => {
     // Rotate the vertices 'A' object about the X axis with -1 angular velocity
     var modelx = mat4.create();
-    mat4.rotateX(modelx, modelx, thetaX);
+    mat4.rotateY(modelx, modelx, thetaY);
     // using up and down arrow keys to reverse the direction of rotation
     if (freezeN) {
-      thetaX += 0.05;
+      thetaY += 0.06;
     } else {
-      thetaX += 0.01;
+      thetaY += 0.01;
     }
     var uModel = gl.getUniformLocation(shaderProgram, "uModel");
     var uView = gl.getUniformLocation(shaderProgram, "uView");
@@ -258,7 +356,9 @@ function main() {
     gl.uniformMatrix4fv(uModel, false, modelx);
     gl.uniformMatrix4fv(uView, false, view);
     gl.uniformMatrix4fv(uProjection, false, perspective);
-    drawing(objects[1].vertices, objects[1].indices, 0, objects[1].length, objects[1].type);
+    drawing(objects[4].vertices, objects[4].indices, 0, objects[4].length, objects[4].type);
+    drawing(objects[5].vertices, objects[5].indices, 0, objects[5].length, objects[5].type);
+    drawing(objects[6].vertices, objects[6].indices, 0, objects[6].length, objects[6].type);
   }
 
   function onKeyPress(event) {
