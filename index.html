@@ -2,17 +2,19 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Belajar webgl</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belajar WebGL</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"
+    integrity="sha512-zhHQR0/H5SEBL3Wn6yYSaTTZej12z0hVZKOv3TwCUXT1z5qeqGcXJLLrbERYRScEDDpYIJhPC1fk31gqR783iQ=="
+    crossorigin="anonymous" defer></script>
 </head>
 
 <body onload="main()">
-  <canvas id="kanvas" width="500" height="500">
-    Browser anda tidak mendukung webgl
-    <script src="main.js"></script>
-  </canvas>
+  <canvas id="kanvas" width="600" height="600">Pakai Internet Explorer ya?</canvas>
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/gl-matrix.js"></script>
 </body>
 
 </html>
