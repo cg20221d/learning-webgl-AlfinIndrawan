@@ -71,6 +71,27 @@ function main() {
   gl.attachShader(shaderProgram, fragmentShaderObject);
   gl.linkProgram(shaderProgram);
   gl.useProgram(shaderProgram);
+
+
+  const animateNumber9 = () => {
+    var model = mat4.create();
+
+    if (horizontalDelta >= (frameWidth / 2) || horizontalDelta <= (-frameWidth / 2 + 1)) {
+      horizontalSpeed = horizontalSpeed * -1;
+    }
+    horizontalDelta += horizontalSpeed;
+    mat4.translate(model, model, [horizontalDelta, verticalDelta, 0.0]);
+
+    var uModel = gl.getUniformLocation(shaderProgram, "uModel");
+    var uView = gl.getUniformLocation(shaderProgram, "uView");
+    var uProjection = gl.getUniformLocation(shaderProgram, "uProjection");
+    gl.uniformMatrix4fv(uModel, false, model);
+    gl.uniformMatrix4fv(uView, false, view);
+    gl.uniformMatrix4fv(uProjection, false, perspective);
+    drawing(objects[0].vertices, objects[0].indices, 0, objects[0].length, objects[0].type);
+  }
+
+
   // teaching gpu how to read position from array_buffer to each vertex that processed
   var aPosition = gl.getAttribLocation(shaderProgram, "aPosition");
   gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
